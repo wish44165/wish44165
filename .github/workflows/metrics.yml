@@ -1,18 +1,19 @@
 name: Metrics
 on:
-  # Schedule updates (runs every 12 hours)
   schedule: [{cron: "0 */12 * * *"}]
   workflow_dispatch:
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       # Card 1: General Stats 
       - name: Generate Base Stats
         uses: lowlighter/metrics@latest
         with:
           filename: metrics.base.svg
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           user: wish44165
           template: classic
           base: header, activity, community, repositories, metadata
@@ -23,9 +24,8 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: metrics.languages.svg
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           user: wish44165
           template: classic
-          # Setting base to an empty string disables the general stats for this specific card
           base: "" 
           plugin_languages: yes
