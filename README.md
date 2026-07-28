@@ -6,12 +6,13 @@ I’m a curious and passionate learner, currently pursuing a PhD 🌟
 
 
 
-### 🔥 Coding Activity & Language Proficiency
+### 🔥 Coding Activity
 
-<div align="left">
-  <img src="./metrics.base.svg" alt="stats graph" />
-  <img src="./metrics.languages.svg" alt="languages graph" />
-</div>
+<p align="left">
+  <a href="https://github.com/wish44165">
+    <img src="https://github-stats-alpha.vercel.app/api?username=wish44165&cc=0d1117&tc=58a6ff&ic=3fb950&bc=30363d" alt="GitHub Stats">
+  </a>
+</p>
 
 
 
