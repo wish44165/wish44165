@@ -7,11 +7,25 @@ jobs:
   github-metrics:
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
+      # Card 1: General Stats 
+      - name: Generate Base Stats
+        uses: lowlighter/metrics@latest
         with:
+          filename: metrics.base.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: wish44165
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Australia/Melbourne
+          
+      # Card 2: Languages Breakdown
+      - name: Generate Languages Stats
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: wish44165
+          template: classic
+          # Setting base to an empty string disables the general stats for this specific card
+          base: "" 
           plugin_languages: yes
