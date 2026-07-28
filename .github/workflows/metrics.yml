@@ -8,24 +8,16 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Card 1: General Stats 
-      - name: Generate Base Stats
+      - name: Generate Clean Stats
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.base.svg
+          filename: metrics.classic.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           user: wish44165
           template: classic
-          base: header, activity, community, repositories, metadata
+          # Stripped down base: only basic header and repository stats
+          base: header, repositories
           config_timezone: Australia/Melbourne
-          
-      # Card 2: Languages Breakdown
-      - name: Generate Languages Stats
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.languages.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-          user: wish44165
-          template: classic
-          base: "" 
           plugin_languages: yes
+          plugin_languages_ignored: html, css
+          plugin_languages_limit: 5
